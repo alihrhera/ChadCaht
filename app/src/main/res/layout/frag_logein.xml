@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.login.LogeinFrag">
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="@dimen/_120sdp"
+        android:layout_height="@dimen/_120sdp"
+        android:layout_marginTop="@dimen/_30sdp"
+        android:src="@drawable/logo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/getUserPhone"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_36sdp"
+        android:layout_marginStart="@dimen/_20sdp"
+        android:layout_marginTop="@dimen/_30sdp"
+        android:layout_marginEnd="@dimen/_20sdp"
+        android:background="@drawable/gray_edit_text"
+        android:hint="@string/phone"
+        android:inputType="phone"
+        android:paddingStart="@dimen/_10sdp"
+        android:paddingEnd="@dimen/_10sdp"
+        android:textColorHint="@color/whit"
+        app:layout_constraintTop_toBottomOf="@id/logo" />
+
+
+    <EditText
+        android:id="@+id/getPass"
+
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_36sdp"
+        android:layout_marginStart="@dimen/_20sdp"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:layout_marginEnd="@dimen/_20sdp"
+        android:background="@drawable/gray_edit_text"
+        android:hint="@string/pass"
+        android:inputType="textPassword"
+        android:paddingStart="@dimen/_10sdp"
+        android:paddingEnd="@dimen/_10sdp"
+        android:textColorHint="@color/whit"
+        app:layout_constraintTop_toBottomOf="@id/getUserPhone" />
+
+    <CheckBox
+
+        android:text="@string/remember_me"
+        android:layout_marginTop="@dimen/_15sdp"
+        app:layout_constraintStart_toStartOf="@id/getPass"
+        app:layout_constraintTop_toBottomOf="@id/getPass"
+        android:id="@+id/rememberME"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    <Button
+
+        android:id="@+id/Login"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginStart="@dimen/_25sdp"
+        android:layout_marginTop="@dimen/_25sdp"
+        android:layout_marginEnd="@dimen/_25sdp"
+        android:background="@drawable/gray_edit_text"
+        android:backgroundTint="@color/colorPrimaryDark"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
+        android:text="@string/login"
+        android:textColor="@color/whit"
+        android:textSize="25sp"
+        app:layout_constraintTop_toBottomOf="@id/rememberME" />
+
+    <Button
+
+        android:id="@+id/reg"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginStart="@dimen/_25sdp"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:layout_marginEnd="@dimen/_25sdp"
+        android:background="@drawable/gray_edit_text"
+        android:backgroundTint="@color/gray_back"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
+        android:text="@string/sign_up"
+        android:textColor="@color/whit"
+        android:textSize="25sp"
+        app:layout_constraintTop_toBottomOf="@id/Login" />
+
+
+    <View
+        android:layout_marginEnd="@dimen/_55sdp"
+        android:layout_marginStart="@dimen/_55sdp"
+        android:layout_marginBottom="@dimen/_5sdp"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_5sdp"
+        android:background="@color/colorPrimaryDark"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

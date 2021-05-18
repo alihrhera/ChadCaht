@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/whit"
+    tools:context=".ui.home.register.RegisterFrag">
+
+    <TextView
+
+        android:id="@+id/label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_25sdp"
+        android:text="@string/sign_up"
+        android:textColor="@color/colorPrimary"
+        android:textSize="@dimen/_40sdp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/name"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_36sdp"
+        android:layout_marginStart="@dimen/_20sdp"
+        android:layout_marginTop="@dimen/_25sdp"
+        android:layout_marginEnd="@dimen/_20sdp"
+        android:background="@drawable/gray_edit_text"
+        android:hint="@string/name"
+        android:paddingStart="@dimen/_10sdp"
+        android:paddingEnd="@dimen/_10sdp"
+        app:layout_constraintTop_toBottomOf="@id/label" />
+
+    <EditText
+        android:id="@+id/phone"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_36sdp"
+        android:layout_marginStart="@dimen/_20sdp"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:layout_marginEnd="@dimen/_20sdp"
+        android:background="@drawable/gray_edit_text"
+        android:hint="@string/phone"
+        android:inputType="phone"
+        android:paddingStart="@dimen/_10sdp"
+        android:paddingEnd="@dimen/_10sdp"
+        app:layout_constraintTop_toBottomOf="@id/name" />
+
+    <EditText
+        android:id="@+id/password"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_36sdp"
+        android:layout_marginStart="@dimen/_20sdp"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:layout_marginEnd="@dimen/_20sdp"
+        android:background="@drawable/gray_edit_text"
+        android:hint="@string/pass"
+        android:paddingStart="@dimen/_10sdp"
+        android:paddingEnd="@dimen/_10sdp"
+        app:layout_constraintTop_toBottomOf="@id/phone" />
+
+    <EditText
+        android:id="@+id/ConfirmPassword"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_36sdp"
+        android:layout_marginStart="@dimen/_20sdp"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:layout_marginEnd="@dimen/_20sdp"
+        android:background="@drawable/gray_edit_text"
+        android:hint="@string/c_pass"
+        android:paddingStart="@dimen/_10sdp"
+        android:paddingEnd="@dimen/_10sdp"
+        app:layout_constraintTop_toBottomOf="@id/password" />
+
+    <Button
+
+        android:id="@+id/Done"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_36sdp"
+        android:layout_marginStart="@dimen/_25sdp"
+        android:layout_marginTop="@dimen/_25sdp"
+        android:layout_marginEnd="@dimen/_25sdp"
+        android:background="@drawable/gray_edit_text"
+        android:backgroundTint="@color/colorPrimaryDark"
+        android:paddingStart="@dimen/_10sdp"
+        android:paddingEnd="@dimen/_10sdp"
+        android:text="@string/sign_up"
+        android:textColor="@color/whit"
+        android:textSize="@dimen/_17sdp"
+        app:layout_constraintTop_toBottomOf="@id/ConfirmPassword" />
+
+    <TextView
+        android:id="@+id/terms"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:layout_marginEnd="@dimen/_25sdp"
+        android:layout_marginStart="@dimen/_25sdp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/our_terms"
+        android:textColor="@color/gray_back"
+        android:textSize="@dimen/_17sdp"
+        app:layout_constraintTop_toBottomOf="@id/Done" />
+    <View
+        android:backgroundTint="@color/colorPrimary"
+        android:background="@drawable/gray_edit_text"
+        android:layout_marginBottom="@dimen/_5sdp"
+        android:layout_marginEnd="@dimen/_90sdp"
+        android:layout_marginStart="@dimen/_90sdp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_5sdp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

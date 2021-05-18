@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">Cahd Chat</string>
+    <string name="login">LogIn</string>
+    <string name="enter_email">Enter Email</string>
+    <string name="entrPass">Enter Password</string>
+    <string name="this_is_requir">"This faild Cant Be Empty "</string>
+    <string name="register">Register</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="name">Name</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="phone">"Phone "</string>
+    <string name="pass">Password</string>
+    <string name="c_pass">Confirm Password</string>
+    <string name="our_terms">By Clicking Sign Up the you Agree Our Terms</string>
+    <string name="wrongPass">\"كلمه المرور غير صحيحه \"</string>
+    <string name="not_user">\"غير مشترك \"</string>
+    <string name="write_ur_message">Write ur message</string>
+    <string name="remember_me">Remember Me</string>
+    <string name="pass_lenght_error"><![CDATA[Password must be > 6 charcters]]></string>
+</resources>

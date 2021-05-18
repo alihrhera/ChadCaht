@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/_60sdp"
+    android:layout_marginStart="@dimen/_8sdp"
+    android:layout_marginTop="@dimen/_4sdp"
+    android:layout_marginEnd="@dimen/_8sdp"
+    android:layout_marginBottom="@dimen/_4sdp"
+    app:cardCornerRadius="@dimen/_10sdp"
+    app:cardElevation="@dimen/_3sdp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:padding="1dp"
+            android:background="@drawable/circl"
+            android:id="@+id/userImage"
+            android:layout_width="@dimen/_50sdp"
+            android:layout_height="@dimen/_50sdp"
+            android:layout_marginStart="@dimen/_10sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:textColor="@color/black"
+            android:id="@+id/userName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:gravity="center|start"
+            android:textSize="18sp"
+            android:maxLines="1"
+            app:layout_constraintStart_toEndOf="@id/userImage"
+            app:layout_constraintTop_toTopOf="@id/userImage" />
+
+        <TextView
+            android:maxLines="1"
+            app:layout_constraintBottom_toBottomOf="@id/userImage"
+            android:id="@+id/lastLinOfCon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:gravity="center|start"
+            android:textSize="15sp"
+            android:textColor="@color/gray_back"
+            app:layout_constraintStart_toEndOf="@id/userImage"
+            app:layout_constraintTop_toBottomOf="@id/userName" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

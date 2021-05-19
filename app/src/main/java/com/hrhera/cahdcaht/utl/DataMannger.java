@@ -100,7 +100,7 @@ public class DataMannger {
 
 
 
-
+    public int []coversPhoto={R.drawable.ceircla_back};
 
 
 
@@ -171,8 +171,8 @@ public class DataMannger {
 
                         if (user.getPassword().equals(u.getPassword())) {
                             if (onUserData != null) {
-                                onUserData.onDone();
                                 loginUser = u;
+                                onUserData.onDone();
                             }
                             return;
                         }

@@ -3,12 +3,30 @@ package com.hrhera.cahdcaht.data.model;
 public class User {
     private String id;
     private String name;
-    private String phone ;
+    private String bio;
+    private String phone;
     private String password;
     private boolean Active;
     private long joinData;
     private long lastLoginTime;
     private String photoLink;
+    private int coverPhotoID;
+
+    public int getCoverPhotoID() {
+        return coverPhotoID;
+    }
+
+    public void setCoverPhotoID(int coverPhotoID) {
+        this.coverPhotoID = coverPhotoID;
+    }
+
+    public String getBio() {
+        return bio;
+    }
+
+    public void setBio(String bio) {
+        this.bio = bio;
+    }
 
     public String getId() {
         return id;

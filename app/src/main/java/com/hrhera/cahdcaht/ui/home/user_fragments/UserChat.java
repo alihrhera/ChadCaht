@@ -15,7 +15,7 @@ import com.hrhera.cahdcaht.ui.MainActivity;
 import com.hrhera.cahdcaht.ui.home.ChatFrage;
 import com.hrhera.cahdcaht.utl.DataMannger;
 import com.hrhera.cahdcaht.ui.adapters.ConvarsationAdapter;
-import com.hrhera.cahdcaht.data.model.Convrsation;
+import com.hrhera.cahdcaht.data.model.Conversation;
 
 import java.util.List;
 
@@ -39,15 +39,15 @@ public class UserChat extends Fragment {
         ConvarsationAdapter adapter = new ConvarsationAdapter();
         allCon.setAdapter(adapter);
         adapter.setOnItmeClick(object -> {
-            if (object instanceof Convrsation) {
-                Convrsation con = (Convrsation) object;
+            if (object instanceof Conversation) {
+                Conversation con = (Conversation) object;
                 DataMannger.getInstance().setMoveToConv(con);
                 ((MainActivity) getActivity()).attachFrag(new ChatFrage());
             }
 
         });
         DataMannger.getInstance().getAllUserChatConvrsatio(list -> {
-            adapter.setConvrsationList((List<Convrsation>) list);
+            adapter.setConversationList((List<Conversation>) list);
 
         });
    /*     MyStaticData.getInstance().getAllUserChat(list -> {

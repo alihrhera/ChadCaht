@@ -14,7 +14,7 @@ import android.widget.EditText;
 import com.hrhera.cahdcaht.R;
 import com.hrhera.cahdcaht.utl.DataMannger;
 import com.hrhera.cahdcaht.ui.adapters.ChatMessageAdapter;
-import com.hrhera.cahdcaht.data.model.Convrsation;
+import com.hrhera.cahdcaht.data.model.Conversation;
 import com.hrhera.cahdcaht.data.model.Message;
 
 import java.util.Calendar;
@@ -36,10 +36,10 @@ public class ChatFrage extends Fragment {
         chatMessage.setLayoutManager(new LinearLayoutManager(getContext()));
         ChatMessageAdapter adapter = new ChatMessageAdapter();
         chatMessage.setAdapter(adapter);
-        Convrsation convrsation= DataMannger.getInstance().getMoveToConv();
+        Conversation conversation = DataMannger.getInstance().getMoveToConv();
         DataMannger.getInstance().setChatList(list -> {
             adapter.setMessageList((List<Message>) list);
-        }, convrsation);
+        }, conversation);
 
 
         EditText editText=root.findViewById(R.id.getMessage);
@@ -52,9 +52,9 @@ public class ChatFrage extends Fragment {
             message.setSenderID(DataMannger.getInstance().getLoginUser().getId());
             message.setTime(Calendar.getInstance().getTimeInMillis());
             message.setMessage(msg);
-            convrsation.getConMessages().add(message);
-            convrsation.setLastUpdateTime(Calendar.getInstance().getTimeInMillis());
-            DataMannger.getInstance().updateCon(convrsation);
+            conversation.getConMessages().add(message);
+            conversation.setLastUpdateTime(Calendar.getInstance().getTimeInMillis());
+            DataMannger.getInstance().updateCon(conversation);
             editText.setText("");
         });
 

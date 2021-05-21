@@ -11,6 +11,15 @@ public class User {
     private long lastLoginTime;
     private String photoLink;
     private int coverPhotoID;
+    int userIconId;
+
+    public int getUserIconId() {
+        return userIconId;
+    }
+
+    public void setUserIconId(int userIconId) {
+        this.userIconId = userIconId;
+    }
 
     public int getCoverPhotoID() {
         return coverPhotoID;

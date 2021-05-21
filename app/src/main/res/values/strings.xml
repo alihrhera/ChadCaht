@@ -20,4 +20,6 @@
     <string name="remember_me">Remember Me</string>
     <string name="pass_lenght_error"><![CDATA[Password must be > 6 charcters]]></string>
     <string name="cover">cover</string>
+    <string name="bai">bio</string>
+    <string name="Save">Save</string>
 </resources>

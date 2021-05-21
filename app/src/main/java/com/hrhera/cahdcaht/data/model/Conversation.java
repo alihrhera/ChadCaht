@@ -3,7 +3,7 @@ package com.hrhera.cahdcaht.data.model;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Convrsation {
+public class Conversation {
     private String id ;
     private String user1ID;
     private String user2ID;

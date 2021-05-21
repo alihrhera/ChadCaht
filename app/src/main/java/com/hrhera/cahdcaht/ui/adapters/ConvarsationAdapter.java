@@ -10,8 +10,9 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.hrhera.cahdcaht.R;
+import com.hrhera.cahdcaht.utl.CircleTransform;
 import com.hrhera.cahdcaht.utl.DataMannger;
-import com.hrhera.cahdcaht.data.model.Convrsation;
+import com.hrhera.cahdcaht.data.model.Conversation;
 import com.hrhera.cahdcaht.data.model.OnItmeClick;
 import com.squareup.picasso.Picasso;
 
@@ -20,11 +21,11 @@ import java.util.List;
 
 public class ConvarsationAdapter extends RecyclerView.Adapter<ConvarsationAdapter.CoHolder> {
 
-    private List<Convrsation> convrsationList = new ArrayList<>();
+    private List<Conversation> conversationList = new ArrayList<>();
     private OnItmeClick onItmeClick;
 
-    public void setConvrsationList(List<Convrsation> convrsationList) {
-        this.convrsationList = convrsationList;
+    public void setConversationList(List<Conversation> conversationList) {
+        this.conversationList = conversationList;
         notifyDataSetChanged();
     }
 
@@ -35,27 +36,27 @@ public class ConvarsationAdapter extends RecyclerView.Adapter<ConvarsationAdapte
     @NonNull
     @Override
     public CoHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.row_conv,parent,false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.row_conv, parent, false);
         return new CoHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull CoHolder holder, int position) {
-        Convrsation convrsation = convrsationList.get(position);
-        holder.name.setText(convrsation.getUser1().getName());
-        Picasso.get().load(convrsation.getUser1().getPhotoLink()).fit().centerCrop().into(holder.userImage);
-        if (convrsation.getUser1ID().equals(DataMannger.getInstance().getLoginUser().getId())) {
-            holder.name.setText(convrsation.getUser2().getName());
-            Picasso.get().load(convrsation.getUser2().getPhotoLink()).fit().centerCrop().into(holder.userImage);
+        Conversation conversation = conversationList.get(position);
+        holder.name.setText(conversation.getUser1().getName());
+        Picasso.get().load(DataMannger.getInstance().userIcons[conversation.getUser1().getUserIconId()]).fit().centerCrop().transform(new CircleTransform()).into(holder.userImage);
+        if (conversation.getUser1ID().equals(DataMannger.getInstance().getLoginUser().getId())) {
+            holder.name.setText(conversation.getUser2().getName());
+            Picasso.get().load(DataMannger.getInstance().userIcons[conversation.getUser2().getUserIconId()]).fit().centerCrop().transform(new CircleTransform()).into(holder.userImage);
         }
 
-        if (convrsation.getConMessages().size() > 0) {
-            holder.lastMessage.setText(convrsation.getConMessages().get(0).getMessage());
+        if (conversation.getConMessages().size() > 0) {
+            holder.lastMessage.setText(conversation.getConMessages().get(0).getMessage());
         }
         holder.itemView.setOnClickListener(view -> {
 
             if (onItmeClick != null) {
-                onItmeClick.onClick(convrsation);
+                onItmeClick.onClick(conversation);
             }
 
         });
@@ -63,10 +64,10 @@ public class ConvarsationAdapter extends RecyclerView.Adapter<ConvarsationAdapte
 
     @Override
     public int getItemCount() {
-        return convrsationList.size();
+        return conversationList.size();
     }
 
-     class CoHolder extends RecyclerView.ViewHolder {
+    class CoHolder extends RecyclerView.ViewHolder {
         TextView name, lastMessage;
         ImageView userImage;
 

@@ -33,10 +33,12 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
-        app:layout_constraintTop_toTopOf="@id/hLine1">
+        app:layout_constraintTop_toTopOf="@id/hLine1"
+        >
 
         <ImageView
+            android:padding="@dimen/_1sdp"
+
             android:id="@+id/userPhoto"
             android:layout_width="@dimen/_100sdp"
             android:layout_height="@dimen/_100sdp"
@@ -44,8 +46,7 @@
             android:background="@drawable/ceircla_back"
             android:backgroundTint="@color/colorAccent"
             android:contentDescription="@string/name"
-            android:elevation="@dimen/_10sdp"
-            android:padding="1dp"
+            android:elevation="@dimen/_15sdp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />

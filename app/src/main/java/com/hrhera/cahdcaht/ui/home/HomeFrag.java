@@ -19,7 +19,6 @@ import com.google.android.material.tabs.TabLayout;
 import com.hrhera.cahdcaht.R;
 import com.hrhera.cahdcaht.ui.MainActivity;
 import com.hrhera.cahdcaht.ui.home.user_fragments.ContactsFragment;
-import com.hrhera.cahdcaht.ui.home.user_fragments.GroupsFragment;
 import com.hrhera.cahdcaht.ui.home.user_fragments.UserChat;
 import com.hrhera.cahdcaht.ui.login.LogeinFrag;
 import com.hrhera.cahdcaht.utl.DataMannger;
@@ -57,7 +56,7 @@ public class HomeFrag extends Fragment {
         MViewPagerAdapter adapter = new MViewPagerAdapter(getChildFragmentManager());
         List<ViewSetup> list = new ArrayList<>();
         list.add(new ViewSetup(new UserChat(), "Chats"));
-        list.add(new ViewSetup(new GroupsFragment(), "Groups"));
+//        list.add(new ViewSetup(new GroupsFragment(), "Groups"));
         adapter.setList(list);
         viewPager.setAdapter(adapter);
 

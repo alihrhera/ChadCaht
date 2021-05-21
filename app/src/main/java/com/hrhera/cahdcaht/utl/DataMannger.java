@@ -7,8 +7,6 @@ import android.util.Log;
 
 import androidx.annotation.NonNull;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -19,7 +17,8 @@ import com.hrhera.cahdcaht.R;
 import com.hrhera.cahdcaht.data.model.AppMethod;
 import com.hrhera.cahdcaht.data.model.AppUser;
 import com.hrhera.cahdcaht.data.model.ChatUser;
-import com.hrhera.cahdcaht.data.model.Convrsation;
+import com.hrhera.cahdcaht.data.model.Conversation;
+import com.hrhera.cahdcaht.data.model.GroupConversation;
 import com.hrhera.cahdcaht.data.model.Message;
 import com.hrhera.cahdcaht.data.model.OnListDone;
 import com.hrhera.cahdcaht.data.model.OnUserData;
@@ -27,6 +26,7 @@ import com.hrhera.cahdcaht.data.model.User;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class DataMannger {
 
@@ -50,62 +50,141 @@ public class DataMannger {
         this.appMethod = appMethod;
     }
 
-    public void loading(){
-        if (appMethod!=null){
+    public void loading() {
+        if (appMethod != null) {
             appMethod.loading();
         }
     }
 
 
-    public void normal(){
-        if (appMethod!=null){
+    public void normal() {
+        if (appMethod != null) {
             appMethod.normal();
         }
     }
 
 
     private SharedPreferences shp;
-    public void setRememberMeStatus(Context context,boolean remember){
-        if (shp==null){
-            shp=context.getSharedPreferences("Info",0);
+
+    public void setRememberMeStatus(Context context, boolean remember) {
+        if (shp == null) {
+            shp = context.getSharedPreferences("Info", 0);
         }
-        shp.edit().putBoolean("remember",remember).apply();
+        shp.edit().putBoolean("remember", remember).apply();
     }
 
-    public boolean isRemember(Context context){
-        if (shp==null){
-            shp=context.getSharedPreferences("Info",0);
+    public boolean isRemember(Context context) {
+        if (shp == null) {
+            shp = context.getSharedPreferences("Info", 0);
         }
-        return shp.getBoolean("remember",false);
+        return shp.getBoolean("remember", false);
     }
 
-    public void setUserData(String phone,String pass){
+    public void setUserData(String phone, String pass) {
 
-        shp.edit().putString("phone",phone).apply();
-        shp.edit().putString("pass",pass).apply();
+        shp.edit().putString("phone", phone).apply();
+        shp.edit().putString("pass", pass).apply();
 
     }
-    public String getPhone(){
 
-        return shp.getString("phone","");
+    public String getPhone() {
+
+        return shp.getString("phone", "");
     }
 
-    public String getPass(){
+    public String getPass() {
 
-        return shp.getString("pass","");
+        return shp.getString("pass", "");
     }
 
 
-
-
-
-
-    public int []coversPhoto={R.drawable.ceircla_back};
-
+    public Integer[] coversPhoto = {R.drawable.a1, R.drawable.a2, R.drawable.a3};
+    public Integer[] userIcons = {
+            R.drawable.ic_batman_162
+            , R.drawable.ic_queen_165
+            , R.drawable.ic_lego_136
+            , R.drawable.ic_scubadiver_131
+            , R.drawable.ic_lego_167
+            , R.drawable.ic_knight_121
+            , R.drawable.ic_superman_156
+            , R.drawable.ic_lego_160
+            , R.drawable.ic_gnome_138
+            , R.drawable.ic_injured_146
+            , R.drawable.ic_clown_122
+            , R.drawable.ic_lego_161
+            , R.drawable.ic_dentist_118
+            , R.drawable.ic_pirate_180
+            , R.drawable.ic_lego_137
+            , R.drawable.ic_lego_126
+            , R.drawable.ic_lego_177
+            , R.drawable.ic_lego_176
+            , R.drawable.ic_thor_13
+            , R.drawable.ic_lego_18
+            , R.drawable.ic_mohawk_110
+            , R.drawable.ic_santaclaus_153
+            , R.drawable.ic_lego_179
+            , R.drawable.ic_businessman_15
+            , R.drawable.ic_explorer_111
+            , R.drawable.ic_wolverine_139
+            , R.drawable.ic_lego_125
+            , R.drawable.ic_lego_10
+            , R.drawable.ic_thespian_178
+            , R.drawable.ic_lego_129
+            , R.drawable.ic_caveman_12
+            , R.drawable.ic_lego_145
+            , R.drawable.ic_lego_148
+            , R.drawable.ic_nativeamerican_11
+            , R.drawable.ic_ninja_17
+            , R.drawable.ic_lego_170
+            , R.drawable.ic_hiphop_143
+            , R.drawable.ic_witch_116
+            , R.drawable.ic_desert_124
+            , R.drawable.ic_magician_150
+            , R.drawable.ic_priest_14
+            , R.drawable.ic_devil_119
+            , R.drawable.ic_lego_158
+            , R.drawable.ic_vampire_172
+            , R.drawable.ic_lego_149
+            , R.drawable.ic_cyborg_120
+            , R.drawable.ic_lego_169
+            , R.drawable.ic_boy_127
+            , R.drawable.ic_dummy_113
+            , R.drawable.ic_woman_173
+            , R.drawable.ic_cheerleader_142
+            , R.drawable.ic_mummy_16
+            , R.drawable.ic_spiderman_135
+            , R.drawable.ic_dj_155
+            , R.drawable.ic_cowgirl_114
+            , R.drawable.ic_americanfootballplayer_164
+            , R.drawable.ic_fisherman_112
+            , R.drawable.ic_spy_141
+            , R.drawable.ic_lego_166
+            , R.drawable.ic_conquistador_174
+            , R.drawable.ic_surgeon_130
+            , R.drawable.ic_man_163
+            , R.drawable.ic_singer_154
+            , R.drawable.ic_lego_128
+            , R.drawable.ic_hiker_152
+            , R.drawable.ic_diver_117
+            , R.drawable.ic_cowboy_168
+            , R.drawable.ic_mariachi_140
+            , R.drawable.ic_lego_19
+            , R.drawable.ic_vampire_147
+            , R.drawable.ic_ninja_159
+            , R.drawable.ic_man_132,
+            R.drawable.ic_thief_157
+            , R.drawable.ic_explorer_133
+            , R.drawable.ic_lego_175
+            , R.drawable.ic_lego_134
+            , R.drawable.ic_cashier_144
+            , R.drawable.ic_lego_151
+            , R.drawable.ic_deadpool_171
+            , R.drawable.ic_businessman_123};
 
 
     public String UsersRef = "Users";
     public String ChatRef = "Chats";
+    public String GroupConversationRef = "GroupConversation";
     private OnUserData addNewUser;
 
 
@@ -147,12 +226,7 @@ public class DataMannger {
 
         DatabaseReference myRef =
                 database.getReference(DataMannger.getInstance().UsersRef + "/" + user.getId());
-        myRef.setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
-            @Override
-            public void onComplete(@NonNull Task<Void> task) {
-                addNewUser.onDone();
-            }
-        });
+        myRef.setValue(user).addOnCompleteListener(task -> addNewUser.onDone());
 
     }
 
@@ -206,20 +280,20 @@ public class DataMannger {
     }
 
 
-    private Convrsation moveToConv = new Convrsation();
+    private Conversation moveToConv = new Conversation();
 
-    public Convrsation getMoveToConv() {
+    public Conversation getMoveToConv() {
         return moveToConv;
     }
 
-    public void setMoveToConv(Convrsation moveToConv) {
+    public void setMoveToConv(Conversation moveToConv) {
         this.moveToConv = moveToConv;
     }
 
 
-    public void setChatList(OnListDone onListDone, Convrsation convrsation) {
+    public void setChatList(OnListDone onListDone, Conversation conversation) {
         List<Message> ChatList = new ArrayList<>();
-        DatabaseReference myRef = database.getReference(ChatRef + "/" + convrsation.getId());
+        DatabaseReference myRef = database.getReference(ChatRef + "/" + conversation.getId());
         myRef.child("conMessages").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -247,29 +321,54 @@ public class DataMannger {
 
     }
 
-
-    public void startNewChat(Convrsation convrsation) {
-        DatabaseReference myRef = database.getReference(ChatRef + "/" + convrsation.getId());
-        myRef.setValue(convrsation);
+    public void updateProfile(String id, Map<String, Object> map) {
+        DatabaseReference reference = database.getReference(UsersRef).child(id);
+        reference.updateChildren(map);
 
     }
 
-    private List<Convrsation> convrsationsList = new ArrayList<>();
+    private DatabaseReference groupConversationRefrence ;
+    private OnListDone onGroupConversationListLoad;
+    private List<GroupConversation>groupConversations=new ArrayList<>();
+    public void getAllChatGroupConversation(OnListDone onGroupConversationListLoad) {
+        this.onGroupConversationListLoad=onGroupConversationListLoad;
+        if (groupConversationRefrence==null){
+            groupConversationRefrence= database.getReference(UsersRef).child(GroupConversationRef);
+
+
+            return;
+        }
+        onGroupConversationListLoad.onLoad(groupConversations);
+
+
+    }
+
+
+
+    public void startNewChat(Conversation conversation) {
+        DatabaseReference myRef = database.getReference(ChatRef + "/" + conversation.getId());
+        myRef.setValue(conversation);
+
+    }
+
+    private List<Conversation> convrsationsList = new ArrayList<>();
 
     OnListDone onChatListDone;
-    public void getAllUserChatConvrsatio(OnListDone onListDone){
-        onChatListDone=onListDone;
-            if (chatRef==null){
-                getAllUserChat();
 
-                return;
-            }
-            onChatListDone.onLoad(convrsationsList);
+    public void getAllUserChatConvrsatio(OnListDone onListDone) {
+        onChatListDone = onListDone;
+        if (chatRef == null) {
+            getAllUserChat();
+
+            return;
+        }
+        onChatListDone.onLoad(convrsationsList);
     }
+
     DatabaseReference chatRef;
 
     private void getAllUserChat() {
-         chatRef = database.getReference(ChatRef);
+        chatRef = database.getReference(ChatRef);
         Query query = chatRef.orderByChild("user1ID").equalTo(loginUser.getId());
         query.addValueEventListener(new ValueEventListener() {
             @Override
@@ -277,7 +376,7 @@ public class DataMannger {
                 convrsationsList = new ArrayList<>();
                 if (snapshot.exists()) {
                     for (DataSnapshot ds : snapshot.getChildren()) {
-                        Convrsation c = ds.getValue(Convrsation.class);
+                        Conversation c = ds.getValue(Conversation.class);
                         if (!convrsationsList.contains(c)) {
                             convrsationsList.add(c);
                         }
@@ -300,7 +399,7 @@ public class DataMannger {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (snapshot.exists()) {
                     for (DataSnapshot ds : snapshot.getChildren()) {
-                        Convrsation c = ds.getValue(Convrsation.class);
+                        Conversation c = ds.getValue(Conversation.class);
                         if (!convrsationsList.contains(c)) {
                             convrsationsList.add(c);
                         }
@@ -322,23 +421,9 @@ public class DataMannger {
     }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    public void updateCon(Convrsation convrsation) {
-        DatabaseReference reference = FirebaseDatabase.getInstance().getReference(ChatRef + "/" + convrsation.getId());
-        reference.setValue(convrsation);
+    public void updateCon(Conversation conversation) {
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference(ChatRef + "/" + conversation.getId());
+        reference.setValue(conversation);
     }
 
 
@@ -354,7 +439,7 @@ public class DataMannger {
             chatUserList = new ArrayList<>();
             for (AppUser appUser : appUserList) {
                 for (String phone : appUser.getPhones()) {
-                    DatabaseReference reference = FirebaseDatabase.getInstance().getReference(UsersRef+"/" + phone);
+                    DatabaseReference reference = FirebaseDatabase.getInstance().getReference(UsersRef + "/" + phone);
                     reference.addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -365,7 +450,7 @@ public class DataMannger {
                             }
                             reference.removeEventListener(this);
 
-                            Log.e("chatUserList",chatUserList.size()+"");
+                            Log.e("chatUserList", chatUserList.size() + "");
                             onContactsLoad.onLoad(chatUserList);
                         }
 
